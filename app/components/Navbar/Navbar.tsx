@@ -29,7 +29,8 @@ function classNames(...classes: string[]) {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false)
-
+  const data =
+    typeof window !== "undefined" ? localStorage.getItem("data") : null
   return (
     <Disclosure as="nav" className="bg-lightpink navbar">
       <>
@@ -55,7 +56,7 @@ const Navbar = () => {
 
               <div className="hidden sm:ml-14 md:block">
                 <div className="flex space-x-4">
-                  {localStorage.getItem("data") && (
+                  {data && (
                     <>
                       <Link
                         href={"https://github.com/JShipov/GuessNumber"}
@@ -86,7 +87,7 @@ const Navbar = () => {
             </div>
 
             {/* SIGNIN DIALOG */}
-            {localStorage.getItem("data") ? (
+            {data ? (
               <div
                 onClick={(e) => {
                   localStorage.clear()
