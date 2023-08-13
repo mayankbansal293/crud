@@ -94,7 +94,7 @@ const Navbar = () => {
                   window.location.reload()
                 }}
                 className={` text-purple  hover:text-purple cursor-pointer
-                  px-3 py-4 text-15px font-medium space-links`}
+                  px-3 py-4 hidden sm:ml-14 md:block text-15px font-medium space-links`}
               >
                 Logout
               </div>
