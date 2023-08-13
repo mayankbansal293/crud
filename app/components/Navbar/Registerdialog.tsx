@@ -12,6 +12,7 @@ const Register = () => {
   const openModal = () => {
     setIsOpen(true)
   }
+  const [error, setError] = useState("")
 
   const onSubmit = async (event: any) => {
     event.preventDefault()
@@ -48,10 +49,13 @@ const Register = () => {
       } else {
         // Authentication failed
         const errorData = await response.json()
+        setError(errorData.message)
+
         console.error("Authentication failed:", errorData)
       }
     } catch (error) {
       console.error("An error occurred:", error)
+      setError("An error occurred")
     }
   }
   return (
@@ -158,7 +162,9 @@ const Register = () => {
                             </label>
                           </div>
                         </div>
-
+                        {error && (
+                          <div className="text-red text-sm">{error}</div>
+                        )}
                         <div>
                           <button
                             type="submit"
