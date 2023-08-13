@@ -28,13 +28,16 @@ const Register = () => {
 
     try {
       // Send a POST request to your authentication API endpoint
-      const response = await fetch("http://localhost:3001/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      })
+      const response = await fetch(
+        "https://crud-backend-vtlu.onrender.com/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      )
 
       if (response.ok) {
         // Authentication successful
